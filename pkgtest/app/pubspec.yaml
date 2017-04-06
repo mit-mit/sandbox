@@ -1,0 +1,13 @@
+name: app
+description: A new flutter project.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  aarhus:
+    path: ../aarhus/
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/aarhus.png

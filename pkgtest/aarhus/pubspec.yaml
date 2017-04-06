@@ -1,0 +1,12 @@
+name: aarhus
+description: Small Flutter demo package
+version: 0.0.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/aarhus2017.png
