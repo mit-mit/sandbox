@@ -109,6 +109,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  platform:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: cross-platform-os-detect
+      resolved-ref: "20a71101a1a81041677f31c6878077449416a009"
+      url: "https://github.com/lrhn/platform.dart/"
+    source: git
+    version: "4.0.0"
   sky_engine:
     dependency: transitive
     description: flutter

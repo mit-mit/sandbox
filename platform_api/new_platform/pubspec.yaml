@@ -29,6 +29,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  platform:
+    git:
+      url: https://github.com/lrhn/platform.dart/
+      ref: cross-platform-os-detect
 
 
   # The following adds the Cupertino Icons font to your application.
