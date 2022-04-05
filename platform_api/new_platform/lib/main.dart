@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:platform/platform.dart' as platform;
+import 'package:platform/platform.dart';
+import 'package:platform/native.dart';
 
 void main() {
   runApp(const MaterialApp(title: 'Flutter Demo', home: MyHomePage()));
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +27,10 @@ class MyHomePage extends StatelessWidget {
 }
 
 class ProductWidget extends StatelessWidget {
-  const ProductWidget({Key? key}) : super(key: key);
+  const ProductWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    final isMac = const platform.LocalPlatform().isMacOS;
+    final isMac = Platform.current.isMacOS;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -42,11 +43,11 @@ class ProductWidget extends StatelessWidget {
 }
 
 class HostnameWidget extends StatelessWidget {
-  const HostnameWidget({Key? key}) : super(key: key);
+  const HostnameWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final hostName = const platform.LocalPlatform().localHostname;
+    final hostName = NativePlatform.current.localHostname;
 
     return Text('Host name: $hostName');
   }

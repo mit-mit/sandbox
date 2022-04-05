@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class MyHomePage extends StatelessWidget {
 }
 
 class ProductWidget extends StatelessWidget {
-  const ProductWidget({Key? key}) : super(key: key);
+  const ProductWidget({super.key});
   @override
   Widget build(BuildContext context) {
     final isMac = const platform.LocalPlatform().isMacOS;
@@ -42,7 +42,7 @@ class ProductWidget extends StatelessWidget {
 }
 
 class HostnameWidget extends StatelessWidget {
-  const HostnameWidget({Key? key}) : super(key: key);
+  const HostnameWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
