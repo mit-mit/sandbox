@@ -16,9 +16,9 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             ProductWidget(),
-            HostnameWidget(),
+            if (!Platform.current.isBrowser) HostnameWidget(),
           ],
         ),
       ),

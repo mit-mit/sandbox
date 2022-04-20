@@ -15,9 +15,9 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             ProductWidget(),
-            HostnameWidget(),
+            if (!platform.LocalPlatform().isBrowser) HostnameWidget(),
           ],
         ),
       ),
@@ -35,7 +35,7 @@ class ProductWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         for (var product in ['Foo1', 'Foo2', 'Foo3'])
-          isMac ? Text('i$product') : Text(product)
+          Text(isMac ? 'i$product' : product)
       ],
     );
   }
