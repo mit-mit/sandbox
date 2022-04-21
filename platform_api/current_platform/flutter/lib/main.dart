@@ -30,8 +30,8 @@ class ProductWidget extends StatelessWidget {
   const ProductWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    // The following will cause a runtime crash on Flutter web. No warnings are
-    // shown during edit- or compile-time.
+    // BAD: The following will cause a runtime crash on Flutter web
+    // VERY BAD: No warnings are at compile-time.
     final isMac = const platform.LocalPlatform().isMacOS;
 
     return Column(

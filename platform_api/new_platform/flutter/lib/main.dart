@@ -16,9 +16,10 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          // The following nearly works, except:
-          // 1) need to manually const
-          // 2) if the isBrowser check is removed we get a runtime failure for
+          // GOOD: This code runs as expected on both native and web.
+          // BAD: I don't think HostnameWidget() is tree-shaken on web?
+          // SLIGHTLY BAD: need to move const into the individual widgets.
+          // BAD: if the isBrowser check is removed we get a runtime failure for
           //    "Unsupported operation: Platform._localHostname"
           //    where we should get a compile-time error.
           children: <Widget>[
