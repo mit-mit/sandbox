@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:platform/platform.dart';
 import 'package:platform/native.dart';
+import 'package:platform/platform.dart';
 
 void main() {
   runApp(const MaterialApp(title: 'Flutter Demo', home: MyHomePage()));
@@ -16,9 +16,14 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          // The following nearly works, except:
+          // 1) need to manually const
+          // 2) if the isBrowser check is removed we get a runtime failure for
+          //    "Unsupported operation: Platform._localHostname"
+          //    where we should get a compile-time error.
           children: <Widget>[
-            ProductWidget(),
-            if (!Platform.current.isBrowser) HostnameWidget(),
+            const ProductWidget(),
+            if (!Platform.current.isBrowser) const HostnameWidget(),
           ],
         ),
       ),

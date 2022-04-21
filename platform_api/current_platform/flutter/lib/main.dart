@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:platform/platform.dart' as platform;
 
@@ -15,9 +16,9 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: const <Widget>[
             ProductWidget(),
-            if (!platform.LocalPlatform().isBrowser) HostnameWidget(),
+            if (!kIsWeb) HostnameWidget(),
           ],
         ),
       ),
@@ -29,6 +30,8 @@ class ProductWidget extends StatelessWidget {
   const ProductWidget({super.key});
   @override
   Widget build(BuildContext context) {
+    // The following will cause a runtime crash on Flutter web. No warnings are
+    // shown during edit- or compile-time.
     final isMac = const platform.LocalPlatform().isMacOS;
 
     return Column(
