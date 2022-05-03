@@ -19,12 +19,16 @@ class MyHomePage extends StatelessWidget {
           // GOOD: This code runs as expected on both native and web.
           // BAD: I don't think HostnameWidget() is tree-shaken on web?
           // SLIGHTLY BAD: need to move const into the individual widgets.
-          // BAD: if the isBrowser check is removed we get a runtime failure for
-          //    "Unsupported operation: Platform._localHostname"
-          //    where we should get a compile-time error.
+          // GOOD: if the isBrowser check is removed we get a build-time failure:
+          //   $ flutter run -d chrome
+          //      /lib/src/native_platform/local_native_platform.dart:5:8:
+          //         Error: Not found: 'dart:io_not_available'
+          //      /lib/src/native_platform/local_native_platform.dart:18:36:
+          //         Error: Undefined name'Platform'
           children: <Widget>[
             const ProductWidget(),
             if (!Platform.current.isBrowser) const HostnameWidget(),
+//            const HostnameWidget(),
           ],
         ),
       ),
