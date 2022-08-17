@@ -11,4 +11,4 @@ dependencies:
 dev_dependencies:
   lints: ^2.0.0
   ffigen:
-    git: https://github.com/dart-lang/ffigen.git
+    path: /Users/mit/tmp/ffigen

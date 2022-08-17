@@ -695,36 +695,154 @@ class TimeZone {
           ffi.Pointer<ObjCObject>)>();
 
   late final _sel_localTimeZone1 = _registerName1("localTimeZone");
+  late final _sel_knownTimeZoneNames1 = _registerName1("knownTimeZoneNames");
+  late final _sel_abbreviationDictionary1 =
+      _registerName1("abbreviationDictionary");
+  late final _sel_setAbbreviationDictionary_1 =
+      _registerName1("setAbbreviationDictionary:");
+  void _objc_msgSend_27(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ObjCObject> value,
+  ) {
+    return __objc_msgSend_27(
+      obj,
+      sel,
+      value,
+    );
+  }
+
+  late final __objc_msgSend_27Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ObjCObject>)>>('objc_msgSend');
+  late final __objc_msgSend_27 = __objc_msgSend_27Ptr.asFunction<
+      void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ObjCObject>)>();
+
+  late final _sel_timeZoneDataVersion1 = _registerName1("timeZoneDataVersion");
+  late final _sel_secondsFromGMT1 = _registerName1("secondsFromGMT");
+  int _objc_msgSend_28(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
+    return __objc_msgSend_28(
+      obj,
+      sel,
+    );
+  }
+
+  late final __objc_msgSend_28Ptr = _lookup<
+      ffi.NativeFunction<
+          NSInteger Function(
+              ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>>('objc_msgSend');
+  late final __objc_msgSend_28 = __objc_msgSend_28Ptr.asFunction<
+      int Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
+
+  late final _sel_abbreviation1 = _registerName1("abbreviation");
+  late final _sel_isDaylightSavingTime1 =
+      _registerName1("isDaylightSavingTime");
+  late final _sel_daylightSavingTimeOffset1 =
+      _registerName1("daylightSavingTimeOffset");
+  late final _sel_nextDaylightSavingTimeTransition1 =
+      _registerName1("nextDaylightSavingTimeTransition");
+  ffi.Pointer<ObjCObject> _objc_msgSend_29(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
+    return __objc_msgSend_29(
+      obj,
+      sel,
+    );
+  }
+
+  late final __objc_msgSend_29Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ObjCObject> Function(
+              ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>>('objc_msgSend');
+  late final __objc_msgSend_29 = __objc_msgSend_29Ptr.asFunction<
+      ffi.Pointer<ObjCObject> Function(
+          ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
+
+  late final _sel_isEqualToTimeZone_1 = _registerName1("isEqualToTimeZone:");
+  bool _objc_msgSend_30(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ObjCObject> aTimeZone,
+  ) {
+    return __objc_msgSend_30(
+      obj,
+      sel,
+      aTimeZone,
+    );
+  }
+
+  late final __objc_msgSend_30Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Bool Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ObjCObject>)>>('objc_msgSend');
+  late final __objc_msgSend_30 = __objc_msgSend_30Ptr.asFunction<
+      bool Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ObjCObject>)>();
+
+  late final _class_NSLocale1 = _getClass1("NSLocale");
+  late final _sel_localizedName_locale_1 =
+      _registerName1("localizedName:locale:");
+  ffi.Pointer<ObjCObject> _objc_msgSend_31(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    int style,
+    ffi.Pointer<ObjCObject> locale,
+  ) {
+    return __objc_msgSend_31(
+      obj,
+      sel,
+      style,
+      locale,
+    );
+  }
+
+  late final __objc_msgSend_31Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ObjCObject> Function(
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ObjCSel>,
+              ffi.Int32,
+              ffi.Pointer<ObjCObject>)>>('objc_msgSend');
+  late final __objc_msgSend_31 = __objc_msgSend_31Ptr.asFunction<
+      ffi.Pointer<ObjCObject> Function(ffi.Pointer<ObjCObject>,
+          ffi.Pointer<ObjCSel>, int, ffi.Pointer<ObjCObject>)>();
+
   late final _sel_timeZoneWithName_1 = _registerName1("timeZoneWithName:");
-  instancetype _objc_msgSend_27(
+  instancetype _objc_msgSend_32(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> tzName,
   ) {
-    return __objc_msgSend_27(
+    return __objc_msgSend_32(
       obj,
       sel,
       tzName,
     );
   }
 
-  late final __objc_msgSend_27Ptr = _lookup<
+  late final __objc_msgSend_32Ptr = _lookup<
       ffi.NativeFunction<
           instancetype Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>)>>('objc_msgSend');
-  late final __objc_msgSend_27 = __objc_msgSend_27Ptr.asFunction<
+  late final __objc_msgSend_32 = __objc_msgSend_32Ptr.asFunction<
       instancetype Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
           ffi.Pointer<ObjCObject>)>();
 
   late final _sel_timeZoneWithName_data_1 =
       _registerName1("timeZoneWithName:data:");
-  instancetype _objc_msgSend_28(
+  instancetype _objc_msgSend_33(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> tzName,
     ffi.Pointer<ObjCObject> aData,
   ) {
-    return __objc_msgSend_28(
+    return __objc_msgSend_33(
       obj,
       sel,
       tzName,
@@ -732,14 +850,14 @@ class TimeZone {
     );
   }
 
-  late final __objc_msgSend_28Ptr = _lookup<
+  late final __objc_msgSend_33Ptr = _lookup<
       ffi.NativeFunction<
           instancetype Function(
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCObject>)>>('objc_msgSend');
-  late final __objc_msgSend_28 = __objc_msgSend_28Ptr.asFunction<
+  late final __objc_msgSend_33 = __objc_msgSend_33Ptr.asFunction<
       instancetype Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
           ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>();
 
@@ -747,23 +865,23 @@ class TimeZone {
   late final _sel_initWithName_data_1 = _registerName1("initWithName:data:");
   late final _sel_timeZoneForSecondsFromGMT_1 =
       _registerName1("timeZoneForSecondsFromGMT:");
-  instancetype _objc_msgSend_29(
+  instancetype _objc_msgSend_34(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     int seconds,
   ) {
-    return __objc_msgSend_29(
+    return __objc_msgSend_34(
       obj,
       sel,
       seconds,
     );
   }
 
-  late final __objc_msgSend_29Ptr = _lookup<
+  late final __objc_msgSend_34Ptr = _lookup<
       ffi.NativeFunction<
           instancetype Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
               NSInteger)>>('objc_msgSend');
-  late final __objc_msgSend_29 = __objc_msgSend_29Ptr.asFunction<
+  late final __objc_msgSend_34 = __objc_msgSend_34Ptr.asFunction<
       instancetype Function(
           ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>, int)>();
 
@@ -917,15 +1035,93 @@ class NSTimeZone extends NSObject {
         : NSTimeZone._(_ret, _lib, retain: true, release: true);
   }
 
+  static NSObject? getKnownTimeZoneNames(TimeZone _lib) {
+    final _ret = _lib._objc_msgSend_2(
+        _lib._class_NSTimeZone1, _lib._sel_knownTimeZoneNames1);
+    return _ret.address == 0
+        ? null
+        : NSObject._(_ret, _lib, retain: true, release: true);
+  }
+
+  static NSObject? getAbbreviationDictionary(TimeZone _lib) {
+    final _ret = _lib._objc_msgSend_2(
+        _lib._class_NSTimeZone1, _lib._sel_abbreviationDictionary1);
+    return _ret.address == 0
+        ? null
+        : NSObject._(_ret, _lib, retain: true, release: true);
+  }
+
+  static void setAbbreviationDictionary(TimeZone _lib, NSObject? value) {
+    _lib._objc_msgSend_27(_lib._class_NSTimeZone1,
+        _lib._sel_setAbbreviationDictionary_1, value?._id ?? ffi.nullptr);
+  }
+
+  static NSString? getTimeZoneDataVersion(TimeZone _lib) {
+    final _ret = _lib._objc_msgSend_15(
+        _lib._class_NSTimeZone1, _lib._sel_timeZoneDataVersion1);
+    return _ret.address == 0
+        ? null
+        : NSString._(_ret, _lib, retain: true, release: true);
+  }
+
+  int get secondsFromGMT {
+    return _lib._objc_msgSend_28(_id, _lib._sel_secondsFromGMT1);
+  }
+
+  NSString? get abbreviation {
+    final _ret = _lib._objc_msgSend_15(_id, _lib._sel_abbreviation1);
+    return _ret.address == 0
+        ? null
+        : NSString._(_ret, _lib, retain: true, release: true);
+  }
+
+  bool get daylightSavingTime {
+    return _lib._objc_msgSend_11(_id, _lib._sel_isDaylightSavingTime1);
+  }
+
+  /// for current instant
+  double get daylightSavingTimeOffset {
+    return _lib._objc_msgSend_17(_id, _lib._sel_daylightSavingTimeOffset1);
+  }
+
+  /// after current instant
+  NSDate? get nextDaylightSavingTimeTransition {
+    final _ret =
+        _lib._objc_msgSend_29(_id, _lib._sel_nextDaylightSavingTimeTransition1);
+    return _ret.address == 0
+        ? null
+        : NSDate._(_ret, _lib, retain: true, release: true);
+  }
+
+  NSString? get description {
+    final _ret = _lib._objc_msgSend_15(_id, _lib._sel_description1);
+    return _ret.address == 0
+        ? null
+        : NSString._(_ret, _lib, retain: true, release: true);
+  }
+
+  bool isEqualToTimeZone_(NSTimeZone? aTimeZone) {
+    return _lib._objc_msgSend_30(
+        _id, _lib._sel_isEqualToTimeZone_1, aTimeZone?._id ?? ffi.nullptr);
+  }
+
+  NSString localizedName_locale_(int style, NSLocale? locale) {
+    final _ret = _lib._objc_msgSend_31(_id, _lib._sel_localizedName_locale_1,
+        style, locale?._id ?? ffi.nullptr);
+    return NSString._(_ret, _lib, retain: true, release: true);
+  }
+
+  /// Primary creation method is +timeZoneWithName:; the
+  /// data-taking variants should rarely be used directly
   static NSTimeZone timeZoneWithName_(TimeZone _lib, NSString? tzName) {
-    final _ret = _lib._objc_msgSend_27(_lib._class_NSTimeZone1,
+    final _ret = _lib._objc_msgSend_32(_lib._class_NSTimeZone1,
         _lib._sel_timeZoneWithName_1, tzName?._id ?? ffi.nullptr);
     return NSTimeZone._(_ret, _lib, retain: true, release: true);
   }
 
   static NSTimeZone timeZoneWithName_data_(
       TimeZone _lib, NSString? tzName, NSData? aData) {
-    final _ret = _lib._objc_msgSend_28(
+    final _ret = _lib._objc_msgSend_33(
         _lib._class_NSTimeZone1,
         _lib._sel_timeZoneWithName_data_1,
         tzName?._id ?? ffi.nullptr,
@@ -934,26 +1130,29 @@ class NSTimeZone extends NSObject {
   }
 
   NSTimeZone initWithName_(NSString? tzName) {
-    final _ret = _lib._objc_msgSend_27(
+    final _ret = _lib._objc_msgSend_32(
         _id, _lib._sel_initWithName_1, tzName?._id ?? ffi.nullptr);
     return NSTimeZone._(_ret, _lib, retain: true, release: true);
   }
 
   NSTimeZone initWithName_data_(NSString? tzName, NSData? aData) {
-    final _ret = _lib._objc_msgSend_28(_id, _lib._sel_initWithName_data_1,
+    final _ret = _lib._objc_msgSend_33(_id, _lib._sel_initWithName_data_1,
         tzName?._id ?? ffi.nullptr, aData?._id ?? ffi.nullptr);
     return NSTimeZone._(_ret, _lib, retain: true, release: true);
   }
 
+  /// Time zones created with this never have daylight savings and the
+  /// offset is constant no matter the date; the name and abbreviation
+  /// do NOT follow the POSIX convention (of minutes-west).
   static NSTimeZone timeZoneForSecondsFromGMT_(TimeZone _lib, int seconds) {
-    final _ret = _lib._objc_msgSend_29(_lib._class_NSTimeZone1,
+    final _ret = _lib._objc_msgSend_34(_lib._class_NSTimeZone1,
         _lib._sel_timeZoneForSecondsFromGMT_1, seconds);
     return NSTimeZone._(_ret, _lib, retain: true, release: true);
   }
 
   static NSTimeZone timeZoneWithAbbreviation_(
       TimeZone _lib, NSString? abbreviation) {
-    final _ret = _lib._objc_msgSend_27(_lib._class_NSTimeZone1,
+    final _ret = _lib._objc_msgSend_32(_lib._class_NSTimeZone1,
         _lib._sel_timeZoneWithAbbreviation_1, abbreviation?._id ?? ffi.nullptr);
     return NSTimeZone._(_ret, _lib, retain: true, release: true);
   }
@@ -1392,12 +1591,46 @@ class NSCoder extends _ObjCWrapper {
 }
 
 abstract class NSTimeZoneNameStyle {
+  /// Central Standard Time
   static const int NSTimeZoneNameStyleStandard = 0;
+
+  /// CST
   static const int NSTimeZoneNameStyleShortStandard = 1;
+
+  /// Central Daylight Time
   static const int NSTimeZoneNameStyleDaylightSaving = 2;
+
+  /// CDT
   static const int NSTimeZoneNameStyleShortDaylightSaving = 3;
+
+  /// Central Time
   static const int NSTimeZoneNameStyleGeneric = 4;
+
+  /// CT
   static const int NSTimeZoneNameStyleShortGeneric = 5;
+}
+
+class NSLocale extends _ObjCWrapper {
+  NSLocale._(ffi.Pointer<ObjCObject> id, TimeZone lib,
+      {bool retain = false, bool release = false})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a [NSLocale] that points to the same underlying object as [other].
+  static NSLocale castFrom<T extends _ObjCWrapper>(T other) {
+    return NSLocale._(other._id, other._lib, retain: true, release: true);
+  }
+
+  /// Returns a [NSLocale] that wraps the given raw object pointer.
+  static NSLocale castFromPointer(TimeZone lib, ffi.Pointer<ObjCObject> other,
+      {bool retain = false, bool release = false}) {
+    return NSLocale._(other, lib, retain: retain, release: release);
+  }
+
+  /// Returns whether [obj] is an instance of [NSLocale].
+  static bool isInstance(_ObjCWrapper obj) {
+    return obj._lib._objc_msgSend_0(
+        obj._id, obj._lib._sel_isKindOfClass_1, obj._lib._class_NSLocale1);
+  }
 }
 
 typedef NSNotificationName = ffi.Pointer<ObjCObject>;

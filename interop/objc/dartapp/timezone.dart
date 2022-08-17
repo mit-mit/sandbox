@@ -8,10 +8,11 @@ void main(List<String> args) async {
 
   var timeZone = NSTimeZone.getLocalTimeZone(lib);
   if (timeZone != null) {
-    print('Timezone name: ${timeZone.name}');
-    // print('Timezone offset: ${timeZone.secondsFromGMT} hours');
+    print('\nTimezone name: ${timeZone.name}');
+    print('Offset from GMT: ${timeZone.secondsFromGMT / 60 / 60} hours');
   }
 
   timeZone = NSTimeZone.timeZoneForSecondsFromGMT_(lib, 0);
-  print('Timezone name: ${timeZone.name}');
+  print('\nTimezone name: ${timeZone.name}');
+  print('Offset from GMT: ${timeZone.secondsFromGMT / 60 / 60} hours');
 }

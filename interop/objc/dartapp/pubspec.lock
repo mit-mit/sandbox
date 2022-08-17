@@ -39,11 +39,9 @@ packages:
   ffigen:
     dependency: "direct dev"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "582791818a25bd9168afca1ec7d76b6980eef403"
-      url: "https://github.com/dart-lang/ffigen.git"
-    source: git
+      path: "/Users/mit/tmp/ffigen"
+      relative: false
+    source: path
     version: "6.1.0"
   file:
     dependency: transitive
