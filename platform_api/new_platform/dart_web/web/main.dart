@@ -1,6 +1,6 @@
 import 'dart:html';
 
-//import 'package:platform/native.dart';
+import 'package:platform/native.dart';
 import 'package:platform/platform.dart';
 
 void main() {
@@ -12,6 +12,6 @@ void main() {
   querySelector('#browser')?.text = 'isBrowser: $isBrowser.';
 
   // GOOD: Uncommenting these line causes a compile-time warning.
-  // final hostName = NativePlatform.current.localHostname;
-  // querySelector('#output')?.text = 'Your Dart app is running on $hostName.';
+  final hostName = NativePlatform.current.localHostname;
+  querySelector('#output')?.text = 'Your Dart app is running on $hostName.';
 }

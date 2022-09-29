@@ -1,14 +1,20 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
-import 'package:platform/native.dart';
 import 'package:platform/platform.dart';
+
+import 'native_widgets.dart';
 
 void main() {
   runApp(const MaterialApp(title: 'Flutter Demo', home: MyHomePage()));
 }
 
+class Platform2 {
+  static get isBrowser => false;
+}
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,19 +22,16 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          // GOOD: This code runs as expected on both native and web.
-          // BAD: I don't think HostnameWidget() is tree-shaken on web?
-          // SLIGHTLY BAD: need to move const into the individual widgets.
-          // GOOD: if the isBrowser check is removed we get a build-time failure:
-          //   $ flutter run -d chrome
-          //      /lib/src/native_platform/local_native_platform.dart:5:8:
-          //         Error: Not found: 'dart:io_not_available'
-          //      /lib/src/native_platform/local_native_platform.dart:18:36:
-          //         Error: Undefined name'Platform'
           children: <Widget>[
             const ProductWidget(),
+            // Using HostnameWidget guarded by a platform check
+            // should pass analysis and compile for both native and web.
+            // Compilers should tree-shake.
             if (!Platform.current.isBrowser) const HostnameWidget(),
-//            const HostnameWidget(),
+
+            // Using HostnameWidget() unguarded by a platform check should 
+            // pass analysis but be a compile-time error.
+            const HostnameWidget(),
           ],
         ),
       ),
@@ -36,12 +39,18 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+// This widget uses platform-specific rendering,
+// using the Platform.current API.
 class ProductWidget extends StatelessWidget {
   const ProductWidget({super.key});
   @override
   Widget build(BuildContext context) {
+    // Supported on all platforms.
+    //
+    // This should be treated as const by the compiler
+    // so that we can optimize based on it.
     final isMac = Platform.current.isMacOS;
-
+    
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -52,13 +61,3 @@ class ProductWidget extends StatelessWidget {
   }
 }
 
-class HostnameWidget extends StatelessWidget {
-  const HostnameWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final hostName = NativePlatform.current.localHostname;
-
-    return Text('Host name: $hostName');
-  }
-}
