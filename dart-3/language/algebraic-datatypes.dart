@@ -1,3 +1,6 @@
+// Experimental feature. Run with:
+// dart run --enable-experiment=records,patterns algebraric-datatypes.dart
+
 import 'dart:math' as math;
 
 abstract class Shape {
@@ -32,4 +35,9 @@ double calculateAreaOld(Shape shape) {
   } else {
     throw ArgumentError("Unexpected shape.");
   }
+}
+
+main() {
+  var s = Circle(12);
+  print('Area: ${calculateAreaOld(s)}.');
 }
