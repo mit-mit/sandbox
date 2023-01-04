@@ -1,3 +1,6 @@
+// Experimental feature. Run with:
+// dart run --enable-experiment=records,patterns if-case.dart
+
 import 'dart:convert';
 
 const jsonString = '''

@@ -1,3 +1,6 @@
+// Experimental feature. Run with:
+// dart run --enable-experiment=inline-class inline-class.dart
+
 // Create a type `IdNumber` which has `int` as the underlying representation.
 inline class IdNumber {
   // Define the representation type.

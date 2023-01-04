@@ -1,3 +1,6 @@
+// Experimental feature. Run with:
+// dart run --enable-experiment=inline-class inline-class-simple.dart
+
 inline class Foo {
   final int i;
   Foo(this.i);

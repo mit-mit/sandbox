@@ -1,5 +1,5 @@
 // Experimental feature. Run with:
-// dart run --enable-experiment=records,patterns algebraric-datatypes.dart
+// dart run --enable-experiment=records,patterns algebraic-datatypes.dart
 
 import 'dart:math' as math;
 
