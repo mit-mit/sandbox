@@ -1,9 +1,9 @@
 // Experimental feature. Run with:
-// dart run --enable-experiment=records,patterns algebraic-datatypes.dart
+// dart run --enable-experiment=records,patterns,sealed-class algebraic-datatypes.dart
 
 import 'dart:math' as math;
 
-abstract class Shape {
+sealed class Shape {
 }
 
 class Square implements Shape {
@@ -15,6 +15,9 @@ class Circle implements Shape {
   final double radius;
   Circle(this.radius);
 }
+
+// Uncommenting this should trigger an error in the switch below.
+// class Foo implements Shape { }
 
 double calculateArea(Shape shape) =>
   switch (shape) {

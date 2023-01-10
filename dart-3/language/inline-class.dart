@@ -21,7 +21,7 @@ inline class IdNumber {
 
 void main() {
   var safeId = IdNumber(20004242);
-  print(safeId.verify(age: 22)); // OK, age 22 matches.
+  print(safeId.verify(age: 23)); // OK, age 23 matches.
 
   print(safeId as int); // OK: Type casting is allowed.
   print(safeId.i); // OK: Representation value can be read.
