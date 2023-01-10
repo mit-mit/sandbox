@@ -1,0 +1,8 @@
+name: oldapp
+description: An an without nullsafety support.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: '>=2.9.0 <3.0.0'
+
