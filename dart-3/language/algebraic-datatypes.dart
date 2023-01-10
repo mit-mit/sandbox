@@ -6,12 +6,12 @@ import 'dart:math' as math;
 sealed class Shape {
 }
 
-class Square implements Shape {
+class Square extends Shape {
   final double length;
   Square(this.length);
 }
 
-class Circle implements Shape {
+class Circle extends Shape {
   final double radius;
   Circle(this.radius);
 }
