@@ -9,5 +9,5 @@ environment:
 dependencies:
   testpkg1:
     path: '../testpkg1'
-  testpkg2:
-    path: '../testpkg2'
+#  testpkg2:
+#    path: '../testpkg2'
