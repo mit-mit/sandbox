@@ -8,6 +8,7 @@ class _Book {
 
   late final String title;
   late final String? subTitle;
-  String get fullTitle => (subTitle == null) ? title : '$title;$subTitle';
   late List<String> authors;
+
+  String get fullTitle => (subTitle == null) ? title : '$title;$subTitle';
 }
