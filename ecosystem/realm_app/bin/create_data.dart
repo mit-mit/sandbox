@@ -7,7 +7,7 @@ void main(List<String> arguments) {
     [Book.schema],
     shouldDeleteIfMigrationNeeded: true,
   );
-  // Realm.deleteRealm(config.path);
+  Realm.deleteRealm(config.path);
   final realm = Realm(config);
   print('Initialized Realm ${config.path}.');
 
@@ -19,6 +19,11 @@ void main(List<String> arguments) {
       'Dart Apprentice: Fundamentals',
       subTitle: 'Modern Cross-Platform Programming With Dart',
       authors: ['Jonathan Sande', 'Kodeco Tutorial Team'],
+    ),
+    Book(
+      '0330258648',
+      'The Hitch Hiker\'s Guide to the Galaxy',
+      authors: ['Douglas Adams'],
     ),
     Book(
       '1950325784',
@@ -37,4 +42,5 @@ void main(List<String> arguments) {
 
   // Cleanup Realm.
   realm.close();
+  Realm.shutdown();
 }
