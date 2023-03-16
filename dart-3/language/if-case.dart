@@ -1,18 +1,16 @@
-// Experimental feature. Run with:
-// dart run --enable-experiment=records,patterns if-case.dart
+// Demonstrates the Dart 3 support for patterns
+// in if-statements.
 
 import 'dart:convert';
 
 const jsonString = '''
-  ["year", 1942, "count", 56]
+  ["year", 1942, "count", 56, "data1", 42, "data2"]
 ''';
 
 main() {
   final json = jsonDecode(jsonString);
 
-  if (json case [String _, int year, String _, int count]) {
-    print('Parsed year $year and count $count.');
-  } else if (json case [String _, int year, String _, int count, ... var rest]) {
+  if (json case ["year", int year, "count", int count, ...var rest]) {
     print('Parsed year $year and count $count plus: $rest.');
   } else {
     print('Failed to parse $jsonString.');

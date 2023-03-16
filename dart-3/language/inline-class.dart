@@ -26,9 +26,11 @@ void main() {
   print(safeId as int); // OK: Type casting is allowed.
   print(safeId.i); // OK: Representation value can be read.
 
-  // myId = safeId + 10; // Compile-time error, IdNumber has no operator `+`.
+  // var myId = 0;
   // myId = safeId; // Compile-time error, type mismatch.
 
-  // dynamic otherId = safeId.
-  // print(otherId.i); // Runtime error: otherId has runtime type int, which has no .i
+  // var myId2 = safeId + 10; // Compile-time error, IdNumber has no operator `+`.
+
+  // dynamic otherId = safeId;
+  // print(otherId.i); // Runtime error: Class 'int' has no instance getter 'i'
 }

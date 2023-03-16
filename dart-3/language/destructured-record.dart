@@ -1,5 +1,6 @@
-// Experimental feature. Run with:
-// dart run --enable-experiment=records,patterns destructured-record.dart
+// Demonstrates using the Dart 3 records feature
+// to return a pair of values from a function.
+// Individual values are desctuctured.
 void main(List<String> arguments) {
   var (lat, long) = getLocation('Aarhus');
   print('Location: $lat, $long.');
@@ -12,6 +13,6 @@ void main(List<String> arguments) {
   if (name == 'Aarhus') {
     return (56.1629, 10.2039);
   } else {
-    return (42.0,12.0);
+    return (42.0, 12.0);
   }
 }

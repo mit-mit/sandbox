@@ -1,10 +1,9 @@
-// Experimental feature. Run with:
-// dart run --enable-experiment=records,patterns,sealed-class algebraic-datatypes.dart
+// Demonstrates using Dart 3 patterns with a
+// switch statement on a type hierachy.
 
 import 'dart:math' as math;
 
-sealed class Shape {
-}
+sealed class Shape {}
 
 class Square extends Shape {
   final double length;
@@ -19,12 +18,12 @@ class Circle extends Shape {
 // Uncommenting this should trigger an error in the switch below.
 // class Foo implements Shape { }
 
-double calculateArea(Shape shape) =>
-  switch (shape) {
-    Square(length: var l) => l * l,
-    Circle(radius: var r) => math.pi * r * r
-  };
-  
+double calculateArea(Shape shape) => switch (shape) {
+      Square(length: var l) => l * l,
+      Circle(radius: var r) => math.pi * r * r,
+      _ => -1
+    };
+
 main() {
   Shape s = Circle(5);
   print('Area of Circle(5): ${calculateArea(s)}.');

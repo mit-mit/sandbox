@@ -1,5 +1,5 @@
 // Experimental feature. Run with:
-// dart run --enable-experiment=inline-class json-inline-class.dart
+// dart run --enable-experiment=inline-class json-inline-classes.dart
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';

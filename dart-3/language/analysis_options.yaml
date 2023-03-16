@@ -1,7 +1,4 @@
 analyzer:
   enable-experiment:
-    - records
-    - patterns
-    - inline-class
     - sealed-class
-    - class-modifiers
+    - inline-class
