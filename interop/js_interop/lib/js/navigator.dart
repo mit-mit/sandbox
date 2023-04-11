@@ -24,10 +24,8 @@ inline class Navigator {
   Navigator(this._obj);
 
   /// Returns true meaning online or false meaning offline.
-  @JS()
   external JSBoolean get onLine;
 
   /// Returns the approximate amount of device memory in gigabytes.
-  @JS()
   external JSNumber get deviceMemory;
 }
