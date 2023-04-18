@@ -21,7 +21,6 @@ class Circle extends Shape {
 double calculateArea(Shape shape) => switch (shape) {
       Square(length: var l) => l * l,
       Circle(radius: var r) => math.pi * r * r,
-      _ => -1
     };
 
 main() {
