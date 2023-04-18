@@ -23,6 +23,7 @@ class BadPet extends Pet {}
 
 demoAbstract() {
   var g = Greeter();
+  print(g);
 }
 
 /// ===========================================================================
