@@ -1,4 +1,3 @@
 analyzer:
   enable-experiment:
-    - sealed-class
     - inline-class

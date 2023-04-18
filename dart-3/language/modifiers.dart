@@ -1,5 +1,14 @@
 /// ===========================================================================
-/// interface
+/// BASE
+/// - can be extended and constructed, but not implemented
+/// ===========================================================================
+
+base class Foo {}
+
+final class Bar extends Foo {}
+
+/// ===========================================================================
+/// INTERFACE
 /// - describes a contract that other classes can implement
 /// - can also be instantiated, unless combined with abstract
 /// ===========================================================================
@@ -40,7 +49,7 @@ void demoInterfaces() {
 }
 
 /// ===========================================================================
-/// abstract
+/// ABSTRACT
 /// - describes a a type that cannot be instantiated/constructed,
 ///   but which may still be extended (to create a subtype)
 ///   or implemented (to create a non-abstract class).
@@ -61,9 +70,6 @@ class DanishGreeter implements Greeter {
 }
 
 demoAbstract() {
-  // Uncommenting the line below causes an error.
-  // final f = foo();
-
   Greeter g = DanishGreeter();
   print('Danish greeter says ${g.hi}; greetiness ${g.greetiness}');
 
@@ -81,23 +87,29 @@ final class Number {
   const Number(this.value);
 }
 
-final class PositiveNumber extends Number {
-  const PositiveNumber(super.value) : super.value = 1;
-}
+/// ===========================================================================
+/// SEALED
+/// - enables exhaustiveness checking in switches.
+/// - cannot be subtyped outside.
+/// ===========================================================================
 
-class Number2 {
-  final value;
-  const Number2(this.value);
-}
+sealed class Vehicle {}
 
-class Number3 extends Number2 {
-  const Number3(super.value);
-}
+final class Bicycle extends Vehicle {}
 
-void demoFinal() {
-  Number2 n = Number2(42);
+final class Car extends Vehicle {}
 
-  if (n is Number3) {}
+final class Truck extends Vehicle {}
+
+// Removing one of the cases in the switch triggers an error.
+String greetVehicle(Vehicle v) => switch (v) {
+      Bicycle() => 'Bike locally, think globally',
+      Car() => 'Nice wheels',
+      Truck() => 'Vroom'
+    };
+
+demoSealed() {
+  print(greetVehicle(Bicycle()));
 }
 
 /// ===========================================================================
