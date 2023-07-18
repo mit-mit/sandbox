@@ -1,16 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:new_platform/platform_extensions.dart';
 import 'package:platform/platform.dart';
 
 import 'native_widgets.dart';
 
 void main() {
   runApp(const MaterialApp(title: 'Flutter Demo', home: MyHomePage()));
-}
-
-class Platform2 {
-  static get isBrowser => false;
 }
 
 class MyHomePage extends StatelessWidget {
@@ -27,11 +24,7 @@ class MyHomePage extends StatelessWidget {
             // Using HostnameWidget guarded by a platform check
             // should pass analysis and compile for both native and web.
             // Compilers should tree-shake.
-            if (!Platform.current.isBrowser) const HostnameWidget(),
-
-            // Using HostnameWidget() unguarded by a platform check should 
-            // pass analysis but be a compile-time error.
-            const HostnameWidget(),
+            if (Platform.current.isNative) const HostnameWidget(),
           ],
         ),
       ),
@@ -50,7 +43,7 @@ class ProductWidget extends StatelessWidget {
     // This should be treated as const by the compiler
     // so that we can optimize based on it.
     final isMac = Platform.current.isMacOS;
-    
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -60,4 +53,3 @@ class ProductWidget extends StatelessWidget {
     );
   }
 }
-
