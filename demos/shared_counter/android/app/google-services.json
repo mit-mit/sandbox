@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "129564188418",
+    "project_id": "flutter-counter-d1d71",
+    "storage_bucket": "flutter-counter-d1d71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129564188418:android:016ad0561465c231866c1b",
+        "android_client_info": {
+          "package_name": "com.example.shared_counter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP13h4EeWoQIlDuZiKfshLsuxQPDO8oPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
