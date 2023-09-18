@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -44,74 +43,23 @@ class _CounterPageState extends State<CounterPage>
     });
   }
 
-  (Offset offset, double size, double speed) calculateLocation(
-      Offset maxSize, int index) {
-    final random = Random(index);
-    final size = max(30.0, 90.0 * random.nextDouble());
-    final speed = random.nextDouble();
-    final offset = Offset(random.nextDouble(), random.nextDouble());
-    final normalizedOffset = offset.scale(maxSize.dx - size, maxSize.dy - size);
-    return (normalizedOffset, size, speed);
-  }
-
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final gridColor = colors.outline.withOpacity(0.50);
-
-    final size = MediaQuery.of(context).size;
-    final padding = MediaQuery.of(context).padding;
-    final maxSize = (size - padding.collapsedSize) as Offset;
-
-    final logos = List<Widget>.generate(counter, (index) {
-      final (offset, radius, speed) = calculateLocation(maxSize, index);
-      return AnimatedPositioned.fromRect(
-        duration: kThemeAnimationDuration,
-        rect: offset & Size.square(radius),
-        child: LogoWidget(speed: speed),
-      );
-    });
-
-    final resetButton = IconButton(
-      tooltip: 'Reset Counter',
-      icon: const Icon(Icons.restore),
-      onPressed: () => showDialog(
-        context: context,
-        builder: (context) => AlertDialog.adaptive(
-          title: const Text('Reset Counter'),
-          content: const Text('Are you sure?'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                _resetCounter();
-              },
-              child: const Text('Reset'),
-            ),
-          ],
-        ),
-      ),
-    );
 
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar.large(
+          SliverAppBar(
             backgroundColor: colors.inversePrimary,
             title: const Text('Flutter Counter'),
-            actions: [resetButton],
+            actions: null,
           ),
           SliverFillRemaining(
             hasScrollBody: false,
             child: SizedBox.expand(
               child: Stack(
                 children: [
-                  Positioned.fill(child: GridPaper(color: gridColor)),
-                  ...logos,
                   Positioned.fill(
                     child: CounterWidget(counter: counter),
                   ),
@@ -152,18 +100,11 @@ class CounterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final shadow = Shadow(
-      blurRadius: 0.1,
-      color: Theme.of(context).colorScheme.surface,
-      offset: const Offset(1.0, 1.0),
-    );
-    final numberDescriptionStyle = textTheme.headlineMedium!.copyWith(
-      shadows: [shadow],
+    final numberDescriptionStyle = textTheme.bodyLarge!.copyWith(
+      fontWeight: FontWeight.bold,
     );
     final numberStyle = textTheme.displaySmall?.copyWith(
       fontWeight: FontWeight.bold,
-      fontSize: 96,
-      shadows: [shadow],
     );
 
     return Column(
@@ -179,48 +120,6 @@ class CounterWidget extends StatelessWidget {
           style: numberStyle,
         ),
       ],
-    );
-  }
-}
-
-class LogoWidget extends StatefulWidget {
-  const LogoWidget({super.key, required this.speed});
-
-  final double speed;
-
-  @override
-  State<LogoWidget> createState() => _LogoWidgetState();
-}
-
-class _LogoWidgetState extends State<LogoWidget> {
-  double turns = Random().nextDouble();
-  late Timer timer;
-
-  @override
-  void initState() {
-    super.initState();
-    timer = Timer.periodic(
-      Duration(milliseconds: max(300, 500 * widget.speed).round()),
-      (_) => _changeRotation(),
-    );
-  }
-
-  void _changeRotation() {
-    setState(() => turns += 1.0 / 8.0);
-  }
-
-  @override
-  void dispose() {
-    timer.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedRotation(
-      turns: turns,
-      duration: const Duration(seconds: 1),
-      child: const FlutterLogo(),
     );
   }
 }
