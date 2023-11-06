@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CounterPage extends StatefulWidget {
@@ -31,27 +32,31 @@ class _CounterPageState extends State<CounterPage>
     });
   }
 
-  void _incrementCounter() => updateCounter(counter + 1);
-  void _decrementCounter() => updateCounter(counter - 1);
-  void _resetCounter() => updateCounter(0);
+  void _incrementCounter() => incrementCounter(1);
+  void _decrementCounter() => incrementCounter(-1);
+  void _resetCounter() => incrementCounter(null);
 
-  void updateCounter(int count) {
-    db.runTransaction((transaction) {
-      final fireDoc = db.collection('demo').doc('demo');
-      return transaction.get(fireDoc).then((doc) {
-        transaction.update(fireDoc, {'counter': count});
-      });
-    });
+  void incrementCounter(int? increment) async {
+    final fireDoc = db.collection('demo').doc('demo');
+    if (increment == null) {
+      await fireDoc.update({'counter': 0});
+    } else {
+      await fireDoc.update({'counter': FieldValue.increment(increment)});
+    }
   }
 
   (Offset offset, double size, double speed) calculateLocation(
-      Offset maxSize, int index) {
+    Size maxSize,
+    int index,
+  ) {
     final random = Random(index);
     final size = max(30.0, 90.0 * random.nextDouble());
     final speed = random.nextDouble();
-    final offset = Offset(random.nextDouble(), random.nextDouble());
-    final normalizedOffset = offset.scale(maxSize.dx - size, maxSize.dy - size);
-    return (normalizedOffset, size, speed);
+    final offset = Offset(
+      random.nextDouble() * (maxSize.width - size),
+      random.nextDouble() * (maxSize.height * 0.8 - size),
+    );
+    return (offset, size, speed);
   }
 
   @override
@@ -60,11 +65,9 @@ class _CounterPageState extends State<CounterPage>
     final gridColor = colors.outline.withOpacity(0.50);
 
     final size = MediaQuery.of(context).size;
-    final padding = MediaQuery.of(context).padding;
-    final maxSize = (size - padding.collapsedSize) as Offset;
 
     final logos = List<Widget>.generate(counter, (index) {
-      final (offset, radius, speed) = calculateLocation(maxSize, index);
+      final (offset, radius, speed) = calculateLocation(size, index);
       return AnimatedPositioned.fromRect(
         duration: kThemeAnimationDuration,
         rect: offset & Size.square(radius),
@@ -81,11 +84,13 @@ class _CounterPageState extends State<CounterPage>
           title: const Text('Reset Counter'),
           content: const Text('Are you sure?'),
           actions: [
-            TextButton(
+            adaptiveAction(
+              context: context,
               onPressed: () => Navigator.of(context).pop(),
               child: const Text('Cancel'),
             ),
-            TextButton(
+            adaptiveAction(
+              context: context,
               onPressed: () {
                 Navigator.of(context).pop();
                 _resetCounter();
@@ -138,6 +143,21 @@ class _CounterPageState extends State<CounterPage>
         ],
       ),
     );
+  }
+}
+
+Widget adaptiveAction({
+  required BuildContext context,
+  required VoidCallback onPressed,
+  required Widget child,
+}) {
+  final ThemeData theme = Theme.of(context);
+  switch (theme.platform) {
+    case TargetPlatform.iOS:
+    case TargetPlatform.macOS:
+      return CupertinoDialogAction(onPressed: onPressed, child: child);
+    default:
+      return TextButton(onPressed: onPressed, child: child);
   }
 }
 
