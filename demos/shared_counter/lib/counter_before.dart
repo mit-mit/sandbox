@@ -30,17 +30,17 @@ class _CounterPageState extends State<CounterPage>
     });
   }
 
-  void _incrementCounter() => updateCounter(counter + 1);
-  void _decrementCounter() => updateCounter(counter - 1);
-  void _resetCounter() => updateCounter(0);
+  void _incrementCounter() => incrementCounter(1);
+  void _decrementCounter() => incrementCounter(-1);
+  void _resetCounter() => incrementCounter(null);
 
-  void updateCounter(int count) {
-    db.runTransaction((transaction) {
-      final fireDoc = db.collection('demo').doc('demo');
-      return transaction.get(fireDoc).then((doc) {
-        transaction.update(fireDoc, {'counter': count});
-      });
-    });
+  void incrementCounter(int? increment) async {
+    final fireDoc = db.collection('demo').doc('demo');
+    if (increment == null) {
+      await fireDoc.update({'counter': 0});
+    } else {
+      await fireDoc.update({'counter': FieldValue.increment(increment)});
+    }
   }
 
   @override
