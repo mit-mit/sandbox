@@ -1,9 +1,7 @@
 // Experimental feature. Run with:
-// dart run --enable-experiment=inline-class inline-class-simple.dart
+// dart run --enable-experiment=inline-class extension-type-simple.dart
 
-inline class Foo {
-  final int i;
-  Foo(this.i);
+extension type Foo(int i) {
   int get doubleUp => 2 * i;
 }
 

@@ -1,14 +1,9 @@
 // Experimental feature. Run with:
-// dart run --enable-experiment=inline-class inline-class.dart
+// dart run --enable-experiment=inline-class extension-type.dart
 
 // Create a type `IdNumber` which has `int` as the underlying representation.
-inline class IdNumber {
-  // Define the representation type.
-  final int i;
-
-  // Default constructor.
-  IdNumber(this.i);
-
+// The representation type is defined with a default constructor.
+extension type IdNumber(int i) {
   // Compare IdNumbers; larger means assigned more recently.
   operator <(IdNumber other) => i < other.i;
 
