@@ -1,0 +1,13 @@
+name: webwasm
+description: An absolute bare-bones web app.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.3.0-149.0.dev
+
+dependencies:
+  web:
+
+dev_dependencies:
+  build_runner:
