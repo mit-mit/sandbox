@@ -11,7 +11,7 @@ dependencies:
   platform:
     git:
       url: https://github.com/lrhn/platform.dart/
-      ref: cross-platform-os-detect
+      ref: 4.0-os-detect
 
 dev_dependencies:
   lints: ^2.0.0
