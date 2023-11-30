@@ -1,0 +1,17 @@
+version: 1
+transforms:
+  - title: "Replace by HostPlatform"
+    date: 2023-11-09
+    element:
+      uris: ["$importUri"]
+      getter: "isAndroid"
+      inClass: LocalPlatform
+      static: true
+    changes:
+      - kind: "replacedBy"
+        replaceTarget: true
+        newElement:
+          uris: ["package:p/host.dart"]
+          getter: current.isAndroid
+          inClass: HostPlatform
+          static: true
