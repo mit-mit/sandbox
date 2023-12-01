@@ -1,6 +1,3 @@
-// Experimental feature. Run with:
-// dart run --enable-experiment=inline-class extension-type.dart
-
 // Create a type `IdNumber` which has `int` as the underlying representation.
 // The representation type is defined with a default constructor.
 extension type IdNumber(int i) {

@@ -1,6 +1,3 @@
-// Experimental feature. Run with:
-// dart run --enable-experiment=inline-class extension-type-simple.dart
-
 extension type Foo(int i) {
   int get doubleUp => 2 * i;
 }
