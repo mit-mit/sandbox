@@ -3,15 +3,26 @@ transforms:
   - title: "Replace by HostPlatform"
     date: 2023-11-09
     element:
-      uris: ["$importUri"]
+      uris: ["package:platform/platform.dart"]
       getter: "isAndroid"
       inClass: LocalPlatform
-      static: true
     changes:
       - kind: "replacedBy"
         replaceTarget: true
         newElement:
-          uris: ["package:p/host.dart"]
+          uris: ["package:platform/host.dart"]
           getter: current.isAndroid
           inClass: HostPlatform
-          static: true
+  - title: "Replace by NativePlatform"
+    date: 2023-11-09
+    element:
+      uris: ["package:platform/platform.dart"]
+      getter: "localHostname"
+      inClass: LocalPlatform
+    changes:
+      - kind: "replacedBy"
+        replaceTarget: true
+        newElement:
+          uris: ["package:platform/native.dart"]
+          getter: current.localHostname
+          inClass: NativePlatform
