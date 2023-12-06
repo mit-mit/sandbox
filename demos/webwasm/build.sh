@@ -3,6 +3,7 @@
 rm -rf build
 mkdir build
 
+dart pub get
 dart compile wasm web/main.dart
 
 cp web/main.* build
