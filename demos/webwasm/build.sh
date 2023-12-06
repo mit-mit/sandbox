@@ -1,11 +1,9 @@
 #!/bin/sh -x
 
-echo "Running with dart command in: $1"
-
 rm -rf build
 mkdir build
 
-$1 compile wasm web/main.dart
+dart compile wasm web/main.dart
 
 cp web/main.* build
 cp web/index.html build
