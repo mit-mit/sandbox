@@ -1,56 +1,48 @@
 # Nextgen js interop support for Dart
  
-This is a small example of the **experimental** next-gen major version of JS
-interop for Dart.
+This is a small example of the next-gen version of JS interop for Dart.
 
 Unlike current interop which is very dynamic, this next version offers strong,
 statically typed APIs. This enables better code completions and catches
 potential issues during development.
 
-In this example, we're wrapping the JS Date class in `lib/js/date.dart`.
+In this example, we're working with a few APIs on the js `navigator` object.
 
-The new support is built on top of the Dart language feature 
-['inline classes'](https://github.com/dart-lang/language/issues/2727). This is
-an experimental language feature, which enables creating strongly typed wrappers
-around existing types -- in this case the JSObject type -- withput the runtime
-overhead of a traditional class.
+The next-gen version is built on top of the new 
+[Dart web APIs in `package:web`](https://dart.dev/interop/js-interop/package-web).
+Behind the scenes this relies on the new Dart language feature 
+['extension types'](https://dart.dev/language/extension-types). 
+This enables creating strongly typed wrappers around existing types -- in this
+case the JSObject type -- without the runtime overhead of a traditional class.
 
-##
+## Code comparison
 
 Here's some classic `dart:js` code for using the navigator object to get the online status and device memory properties of the agent:
 
 ```dart
-final navigator = JsObject.fromBrowserObject(context['navigator']);
-final online = navigator['onLine'];
-final memory = navigator['deviceMemory'];
-```
-
-And here's calling the `now` method on `Dart`:
-
-```dart
-final now = JsObject.fromBrowserObject(context['Date']).callMethod('now');
+final window = dart_js.JsObject.fromBrowserObject(dart_js.context['window']);
+final navigator = window['navigator'];
+final onlineStatus = navigator['onLine'];
+final agent = navigator['userAgent'];
 ```
 
 This code is untyped and relies on property lookups in maps and method calls
-by-name. Misspellings lead to run-time crashes, and there are no code
-completions when using the APIs.
+by-name. Calling APIs with the wrong names (note e.g. the odd spelling of
+`onLine` in the API) lead to run-time crashes, and there are no code completions
+when using the APIs.
 
 With the new JS interop style the inline classes define strongly typed APIs.
 That leads to this strongly typed client code:
 
 ```dart
-final onlineStatus = js.window.navigator.onLine;
-final memory = js.window.navigator.deviceMemory;
-final now = js.Date.current();
+final navigator = web.window.navigator;
+final onlineStatus = navigator.onLine;
+final agent = navigator.userAgent;
 ```
 
 ## Running the example
 
-The example is a Flutter web app. Running it requires passing a a Dart
-experiment flag to enable the experimental Inline Classes feature.
-
-1. Make sure you have flutter.dev installed
-
-2. In a terminal, cd to the root of this example
-
-3. Run the commadn `flutter run --enable-experiment=inline-class`
+The example is a Flutter web app, so simply run the command:
+```console
+flutter run -d chrome
+```
