@@ -1,14 +1,15 @@
 name: js_interop
-description: A new Flutter project.
+description: A Flutter demo app for JS interop.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0-417 <4.0.0"
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  web: ^0.5.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
