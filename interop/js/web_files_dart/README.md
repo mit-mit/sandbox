@@ -1,19 +1,5 @@
-A bare-bones Dart web app.
+Build JS version: `./build-js.sh`, output is in `build`
+Build Wasm version: `./build-wasm.sh`, output is in `build_wasm`
 
-Uses [`package:web`](https://pub.dev/packages/web)
-to interop with JS and the DOM.
-
-## Running and building
-
-To run the app, use these commands:
-```
-dart pub global activate webdev
-webdev serve
-```
-
-To build a production version ready for deployment, use these commands:
-```
-webdev build
-```
-
-For more details, see https://dart.dev/web/get-started
+Use a large JSON test file, e.g.:
+https://github.com/json-iterator/test-data/blob/master/large-file.json

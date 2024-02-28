@@ -4,21 +4,39 @@ import 'dart:convert';
 
 main() {
   document.getElementById('import')!.onClick.listen((_) {
-    final element = document.getElementById('selectedFiles');
-    final files = (element as HTMLInputElement)
-        .files!; // Note: no dynamic access, extra casts needed
-    console.log(files);
-    if (files.length <= 0) return;
+    final input = document.getElementById('selectFiles') as HTMLInputElement;
+    if (input.files == null || input.files!.length <= 0) return;
+
     final reader = FileReader();
-    reader.onload = (e) {
-      // Note: onLoad stream helper missing, but callback style works.
-      final result = json.decode((reader.result as JSString)
-          .toDart); // Note: extra conversion needed on types are are often polymorphic (like result). We can always add helpers as needed
-      final formatted = JsonEncoder.withIndent("  ").convert(result);
-      final area = document.getElementById('result')
-          as HTMLTextAreaElement; // Note: cast needed
-      area.value = formatted;
+    reader.onload = (JSAny e) {
+      final jsonString = measure(
+        () => (reader.result as JSString).toDart,
+        'convert JSString to Dart',
+      );
+      final json = measure(
+        () => jsonDecode(jsonString),
+        'decode json',
+      );
+      log('read json array with length ${json.length}');
+      final jsonString2 = measure(
+        () => jsonEncode(jsonString),
+        'encode json',
+      );
+      log('created json string with length ${jsonString2.length}');
     }.toJS;
-    reader.readAsText(files.item(0)!);
+    reader.readAsText(input.files!.item(0)!);
   });
+}
+
+void log(String content) {
+  final result = document.getElementById('result') as HTMLTextAreaElement;
+  result.textContent = '${result.textContent ?? ''}\n$content';
+}
+
+R measure<R>(R Function() f, String what) {
+  final sw = Stopwatch()..start();
+  final result = f();
+  final duration = sw.elapsedMilliseconds;
+  log("$what in $duration ms");
+  return result;
 }
