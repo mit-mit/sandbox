@@ -12,7 +12,7 @@ class HouseCardStandard extends StatelessWidget {
       child: Align(
         alignment: Alignment.center,
         child: Card(
-          color: Colors.white,
+          surfaceTintColor: Colors.white,
           elevation: 10,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),

@@ -13,11 +13,11 @@ class HouseCardStyled extends StatelessWidget {
         .decorated(color: Color(0xffE8F2F7), shape: BoxShape.circle)
         .padding(all: 20)
         .card(
-          elevation: 10,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-        )
+            elevation: 10,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            color: Colors.white)
         .alignment(Alignment.center)
         .backgroundColor(Color(0xffEBECF1));
   }

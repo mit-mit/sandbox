@@ -10,7 +10,7 @@ class HouseCardPositional extends StatelessWidget {
       Align(
         alignment: Alignment.center,
         Card(
-          color: Colors.white,
+          surfaceTintColor: Colors.white,
           elevation: 10,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
@@ -56,7 +56,8 @@ class Card extends existing.Card {
   const Card(
     existing.Widget child, {
     super.key,
-    required super.color,
+    super.color,
+    super.surfaceTintColor,
     required super.elevation,
     required super.shape,
   }) : super(child: child);
