@@ -1,8 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:json/json.dart';
-
 main() async {
   const pubUrl = "https://pub.dartlang.org/api/packages/protobuf";
   var response = await http.get(Uri.parse(pubUrl));
@@ -15,26 +13,38 @@ main() async {
   }
 }
 
-@JsonCodable()
 class PkgInfo {
   final String name;
   final PkgVersion latest;
 
   PkgInfo({required this.name, required this.latest});
+
+  factory PkgInfo.fromJson(Map<String, dynamic> json) => PkgInfo(
+        name: json['name'],
+        latest: PkgVersion.fromJson(json['latest']),
+      );
 }
 
-@JsonCodable()
 class PkgVersion {
   final String version;
   final PkgPubspec pubspec;
 
   PkgVersion({required this.version, required this.pubspec});
+
+  factory PkgVersion.fromJson(Map<String, dynamic> json) => PkgVersion(
+        version: json['version'],
+        pubspec: PkgPubspec.fromJson(json['pubspec']),
+      );
 }
 
-@JsonCodable()
 class PkgPubspec {
   final String version;
   final String description;
 
   PkgPubspec({required this.version, required this.description});
+
+  factory PkgPubspec.fromJson(Map<String, dynamic> json) => PkgPubspec(
+        version: json['version'],
+        description: json['description'],
+      );
 }
