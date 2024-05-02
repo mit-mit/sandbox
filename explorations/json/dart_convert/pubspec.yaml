@@ -1,0 +1,13 @@
+name: dart_convert
+description: A sample command-line application.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  http:
+
+dev_dependencies:
+  lints: ^3.0.0

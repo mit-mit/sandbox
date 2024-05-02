@@ -1,0 +1,16 @@
+name: dart_jsoncodable
+description: A sample command-line application.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.4.0-0
+
+# Add regular dependencies here.
+dependencies:
+  http:
+  json:
+    path: "/Users/mit/tmp/json"
+
+dev_dependencies:
+  lints: ^3.0.0
