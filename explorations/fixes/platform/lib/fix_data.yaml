@@ -1,28 +1,45 @@
 version: 1
 transforms:
-  - title: "Replace by HostPlatform"
+  - title: "Foo"
     date: 2023-11-09
     element:
-      uris: ["package:platform/platform.dart"]
+      uris: ["package:platform/foo.dart"]
+      getter: "x"
+      inClass: "Foo"
+      static: false
+    changes:
+      - kind: "replacedBy"
+        replaceTarget: true
+        newElement:
+          uris: ["package:platform/foo.dart"]
+          getter: "y"
+          inClass: "Bar"
+          static: true
+  - title: "LocalPlatform.isAndroid"
+    date: 2023-11-09
+    element:
+      uris: ["package:platform/local_platform.dart"]
       getter: "isAndroid"
-      inClass: LocalPlatform
+      inClass: "LocalPlatform"
+      static: false
     changes:
       - kind: "replacedBy"
         replaceTarget: true
         newElement:
-          uris: ["package:platform/host.dart"]
-          getter: current.isAndroid
-          inClass: HostPlatform
-  - title: "Replace by NativePlatform"
+          uris: ["package:platform/platform.dart"]
+          getter: "current.isAndroid"
+          inClass: "Platform"
+          static: true
+  - title: "LocalPlatform.localHostname"
     date: 2023-11-09
     element:
-      uris: ["package:platform/platform.dart"]
+      uris: ["package:platform/local_platform.dart"]
       getter: "localHostname"
-      inClass: LocalPlatform
+      inClass: "LocalPlatform"
     changes:
       - kind: "replacedBy"
         replaceTarget: true
         newElement:
-          uris: ["package:platform/native.dart"]
-          getter: current.localHostname
-          inClass: NativePlatform
+          uris: ["package:platform/platform.dart"]
+          getter: "native!.localHostname"
+          inClass: "Platform"

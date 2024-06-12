@@ -1,13 +1,14 @@
-import 'platform.dart';
-import 'native.dart';
+library local_platform;
 
-@Deprecated('Use Platform or NativePlatform')
+import 'platform.dart';
+
+@Deprecated('Replaced by `Platform`.')
 class LocalPlatform {
   Platform _host = Platform.current;
   NativePlatform _native = NativePlatform.current!;
 
-  @Deprecated('Use HostPlatform')
+  @Deprecated('Replaced by `Platform.isAndroid`.')
   bool get isAndroid => _host.isAndroid;
-  @Deprecated('Use NativePlatform')
+  @Deprecated('Replaced by `Platform.native!.localHostname`.')
   String get localHostname => _native.localHostname;
 }
