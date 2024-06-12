@@ -1,10 +1,10 @@
-import 'host.dart';
+import 'platform.dart';
 import 'native.dart';
 
-@Deprecated('Use HostPlatform or NativePlatform')
+@Deprecated('Use Platform or NativePlatform')
 class LocalPlatform {
-  HostPlatform _host = HostPlatform.current;
-  NativePlatform _native = NativePlatform.current;
+  Platform _host = Platform.current;
+  NativePlatform _native = NativePlatform.current!;
 
   @Deprecated('Use HostPlatform')
   bool get isAndroid => _host.isAndroid;

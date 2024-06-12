@@ -1,6 +1,6 @@
-import 'package:platform/native.dart';
 // ignore: unnecessary_import
 import 'package:platform/host.dart';
+import 'package:platform/native.dart';
 
 // GOOD: This all works great.
 void main(List<String> arguments) {
