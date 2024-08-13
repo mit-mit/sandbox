@@ -1,66 +1,38 @@
 import 'package:flutter/material.dart' as existing;
+import 'package:styled_widget/styled_widget.dart';
 
-class HouseWidgetPositional extends StatelessWidget {
-  HouseWidgetPositional({super.key});
+class HouseCardPositional extends StatelessWidget {
+  HouseCardPositional({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return existing.SizedBox(
-      height: 200,
-      width: 200,
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: MyColors.backgroundGray),
-        Align(
-          alignment: Alignment.center,
-          HouseCardPositional(),
+    return DecoratedBox(
+      decoration: BoxDecoration(color: Color(0xffEBECF1)),
+      Card(
+        surfaceTintColor: Colors.white,
+        elevation: 10,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
         ),
-      ),
-    );
-  }
-}
-
-class HouseCardPositional extends existing.StatelessWidget {
-  const HouseCardPositional({
-    super.key,
-  });
-
-  @override
-  existing.Widget build(existing.BuildContext context) {
-    return Card(
-      elevation: 10,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      Padding(
-        padding: EdgeInsets.all(20),
         DecoratedBox(
           decoration: BoxDecoration(
-            color: MyColors.lightBlue,
+            color: Color(0xffE8F2F7),
             shape: BoxShape.circle,
           ),
-          Padding(
-            padding: EdgeInsets.all(15),
-            DecoratedBox(
-              decoration: BoxDecoration(
-                color: MyColors.darkBlue,
-                shape: BoxShape.circle,
-              ),
-              Padding(
-                padding: EdgeInsets.all(10),
-                Icon(Icons.home_outlined, color: Colors.white),
-              ),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: Color(0xff7AC1E7),
+              shape: BoxShape.circle,
             ),
-          ),
-        ),
-      ),
+            Icon(
+              Icons.home_outlined,
+              color: Colors.white,
+            ).padding(all: 10),
+          ).padding(all: 15),
+        ).padding(all: 20),
+      ).alignment(Alignment.center),
     );
   }
-}
-
-class MyColors {
-  static Color get backgroundGray => Color(0xffEBECF1);
-  static Color get darkBlue => Color(0xff7AC1E7);
-  static Color get lightBlue => Color(0xffE8F2F7);
 }
 
 // Wrapper classes to change APIs.

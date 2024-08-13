@@ -1,43 +1,55 @@
 import 'package:flutter/material.dart';
 
-class HouseCardStandard extends StatelessWidget {
-  const HouseCardStandard({super.key});
+class HouseWidgetStandard extends StatelessWidget {
+  const HouseWidgetStandard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: MyColors.backgroundGray,
+    return SizedBox(
+      height: 200,
+      width: 200,
+      child: DecoratedBox(
+        decoration: BoxDecoration(color: MyColors.backgroundGray),
+        child: Align(
+          alignment: Alignment.center,
+          child: HouseCardStandard(),
+        ),
       ),
-      child: Align(
-        alignment: Alignment.center,
-        child: Card(
-          surfaceTintColor: Colors.white,
-          elevation: 10,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+    );
+  }
+}
+
+class HouseCardStandard extends StatelessWidget {
+  const HouseCardStandard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(20),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: MyColors.lightBlue,
+            shape: BoxShape.circle,
           ),
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.all(15),
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: MyColors.lightBlue,
+                color: MyColors.darkBlue,
                 shape: BoxShape.circle,
               ),
               child: Padding(
-                padding: EdgeInsets.all(15),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: MyColors.darkBlue,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Icon(
-                      Icons.home_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
+                padding: EdgeInsets.all(10),
+                child: Icon(
+                  Icons.home_outlined,
+                  color: Colors.white,
                 ),
               ),
             ),

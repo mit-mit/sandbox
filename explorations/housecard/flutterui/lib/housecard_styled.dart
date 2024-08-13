@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
+class HouseWidgetStyled extends StatelessWidget {
+  const HouseWidgetStyled({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return HouseCardStyled()
+        .alignment(Alignment.center)
+        .backgroundColor(Color(0xffEBECF1))
+        .width(200)
+        .height(200);
+  }
+}
+
 class HouseCardStyled extends StatelessWidget {
   const HouseCardStyled({super.key});
 
@@ -13,12 +26,10 @@ class HouseCardStyled extends StatelessWidget {
         .decorated(color: Color(0xffE8F2F7), shape: BoxShape.circle)
         .padding(all: 20)
         .card(
-            elevation: 10,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            color: Colors.white)
-        .alignment(Alignment.center)
-        .backgroundColor(Color(0xffEBECF1));
+          elevation: 10,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        );
   }
 }
