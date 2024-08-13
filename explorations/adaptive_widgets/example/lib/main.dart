@@ -1,5 +1,4 @@
 import 'package:adaptive_widgets/widgets.dart';
-import 'package:flutter/material.dart' as material;
 
 void main() {
   runApp(App(home: MyHomePage()));

@@ -7,7 +7,7 @@ class HouseCardStandard extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Color(0xffEBECF1),
+        color: MyColors.backgroundGray,
       ),
       child: Align(
         alignment: Alignment.center,
@@ -21,14 +21,14 @@ class HouseCardStandard extends StatelessWidget {
             padding: EdgeInsets.all(20),
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: Color(0xffE8F2F7),
+                color: MyColors.lightBlue,
                 shape: BoxShape.circle,
               ),
               child: Padding(
                 padding: EdgeInsets.all(15),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Color(0xff7AC1E7),
+                    color: MyColors.darkBlue,
                     shape: BoxShape.circle,
                   ),
                   child: Padding(
@@ -46,4 +46,10 @@ class HouseCardStandard extends StatelessWidget {
       ),
     );
   }
+}
+
+class MyColors {
+  static Color get backgroundGray => Color(0xffEBECF1);
+  static Color get darkBlue => Color(0xff7AC1E7);
+  static Color get lightBlue => Color(0xffE8F2F7);
 }
