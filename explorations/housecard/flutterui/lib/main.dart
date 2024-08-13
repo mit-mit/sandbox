@@ -14,7 +14,7 @@ void main() {
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 20,
             children: [
-              HouseWidgetOriginal(),
+//              HouseWidgetOriginal(),
               HouseWidgetStandard(),
               HouseWidgetPositional(),
               HouseWidgetStyled(),

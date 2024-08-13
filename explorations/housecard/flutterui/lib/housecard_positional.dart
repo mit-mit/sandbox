@@ -5,13 +5,12 @@ class HouseWidgetPositional extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return existing.SizedBox(
-      height: 200,
-      width: 200,
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: MyColors.backgroundGray),
+    return SizedBox.square(
+      200,
+      DecoratedBox(
+        BoxDecoration(color: MyColors.backgroundGray),
         Align(
-          alignment: Alignment.center,
+          Alignment.center,
           HouseCardPositional(),
         ),
       ),
@@ -28,25 +27,17 @@ class HouseCardPositional extends existing.StatelessWidget {
   existing.Widget build(existing.BuildContext context) {
     return Card(
       elevation: 10,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       Padding(
-        padding: EdgeInsets.all(20),
+        EdgeInsets.all(20),
         DecoratedBox(
-          decoration: BoxDecoration(
-            color: MyColors.lightBlue,
-            shape: BoxShape.circle,
-          ),
+          BoxDecoration(color: MyColors.lightBlue, shape: BoxShape.circle),
           Padding(
-            padding: EdgeInsets.all(15),
+            EdgeInsets.all(15),
             DecoratedBox(
-              decoration: BoxDecoration(
-                color: MyColors.darkBlue,
-                shape: BoxShape.circle,
-              ),
+              BoxDecoration(color: MyColors.darkBlue, shape: BoxShape.circle),
               Padding(
-                padding: EdgeInsets.all(10),
+                EdgeInsets.all(10),
                 Icon(Icons.home_outlined, color: Colors.white),
               ),
             ),
@@ -66,10 +57,10 @@ class MyColors {
 // Wrapper classes to change APIs.
 class Align extends existing.Align {
   const Align(
+    existing.Alignment aligment,
     existing.Widget child, {
     super.key,
-    required super.alignment,
-  }) : super(child: child);
+  }) : super(child: child, alignment: aligment);
 }
 
 class Card extends existing.Card {
@@ -85,18 +76,29 @@ class Card extends existing.Card {
 
 class DecoratedBox extends existing.DecoratedBox {
   const DecoratedBox(
+    existing.Decoration decoration,
     existing.Widget child, {
     super.key,
-    required super.decoration,
-  }) : super(child: child);
+  }) : super(decoration: decoration, child: child);
 }
 
 class Padding extends existing.Padding {
   const Padding(
+    existing.EdgeInsetsGeometry padding,
     existing.Widget child, {
     super.key,
-    required super.padding,
-  }) : super(child: child);
+  }) : super(child: child, padding: padding);
+}
+
+class SizedBox extends existing.SizedBox {
+  const SizedBox.square(
+    double? dimension,
+    existing.Widget child, {
+    super.key,
+  }) : super.square(
+          child: child,
+          dimension: dimension,
+        );
 }
 
 // Typedefs for those classes we didn't change API for.
