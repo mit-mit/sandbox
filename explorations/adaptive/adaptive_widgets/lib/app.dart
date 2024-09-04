@@ -5,8 +5,9 @@ import 'package:flutter/cupertino.dart' as cupertino;
 
 class App extends StatelessWidget {
   final Widget? home;
+  final showDebug;
 
-  const App({super.key, this.home});
+  const App({super.key, this.home, this.showDebug = true});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
           theme: cupertino.CupertinoThemeData(
               brightness: cupertino.Brightness.light),
           home: home,
+          debugShowCheckedModeBanner: showDebug,
         ),
       _ => material.MaterialApp(
           title: 'Flutter Demo',
@@ -24,6 +26,7 @@ class App extends StatelessWidget {
                 seedColor: material.Colors.deepPurple),
             useMaterial3: true,
           ),
+          debugShowCheckedModeBanner: showDebug,
           home: home,
         ),
     };

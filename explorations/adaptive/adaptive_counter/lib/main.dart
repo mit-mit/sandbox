@@ -1,7 +1,10 @@
 import 'package:adaptive_widgets/widgets.dart' hide Action;
 
 void main() {
-  runApp(App(home: MyHomePage()));
+  runApp(App(
+    home: MyHomePage(),
+    showDebug: false,
+  ));
 }
 
 class MyHomePage extends StatefulWidget {
@@ -20,7 +23,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       title: Text('Counter app'),
       body: Center(
-        child: Text('Current count: $count'),
+        child: Text(
+          'Current count: $count',
+          style: TextStyle(fontSize: 24),
+        ),
       ),
       primaryAction: ScaffoldAction(
         icon: Icons.add,
