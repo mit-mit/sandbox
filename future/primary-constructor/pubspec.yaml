@@ -1,0 +1,9 @@
+name: primary_constructor
+description: A sample command-line application.
+version: 1.0.0
+
+environment:
+  sdk: ^3.11.0-292.0.dev
+
+# Add regular dependencies here.
+# dependencies:
