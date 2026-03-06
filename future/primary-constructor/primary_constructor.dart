@@ -14,8 +14,8 @@ void main(List<String> arguments) {
   print(cart.describe);
 
   // This currently fails, skip for now.
-  // cart.name = 'My old cart';
-  // print(cart.describe);
+  //cart.name = 'My old cart';
+  //print(cart.describe);
 
   final rocket = Vehicle.unwheeled('My spaceship');
   print(rocket.describe);
