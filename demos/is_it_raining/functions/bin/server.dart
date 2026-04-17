@@ -8,7 +8,7 @@ void main(List<String> args) {
   fireUp(args, (firebase) {
     // Set maxInstances to control costs during unexpected traffic spikes.
     firebase.https.onRequest(
-      name: 'DoesItRainInAarhus',
+      name: 'IsItRainingInAarhus',
       options: const HttpsOptions(
         cors: Cors(['*']),
         maxInstances: Instances(5),
