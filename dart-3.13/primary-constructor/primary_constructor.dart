@@ -20,12 +20,3 @@ void main(List<String> arguments) {
   final rocket = Vehicle.unwheeled('My spaceship');
   print(rocket.describe);
 }
-
-class Pet {
-  String name = 'Fluffy';
-
-  new() : name = 'Fluffy';
-  new withName(this.name);
-}
-
-class Dog extends Pet;
